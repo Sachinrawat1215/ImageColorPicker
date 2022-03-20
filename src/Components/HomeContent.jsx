@@ -4,7 +4,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const HomeContent = () => {
+    // Decalring all states
     const [file, setfile] = useState('Images/main.jpg');
+
+    // Showing all notification card
     const notify = () => toast.success("Code Copied...", {
         position: "bottom-right",
         autoClose: 3000
@@ -22,6 +25,7 @@ const HomeContent = () => {
     const [oldrgbcode, setoldrgbcode] = useState('rgb(0, 0, 0)');
     const [mode, setmode] = useState('');
 
+    // Changing theme color
     const changeTheme = () => {
         mode === 'active' ? setmode('') : setmode('active')
     }
@@ -44,7 +48,7 @@ const HomeContent = () => {
             setImage(510, 380);
         } else if (window.screen.width < 550 && window.screen.width > 420) {
             setImage(380, 280);
-        }else if (window.screen.width < 420 && window.screen.width > 390) {
+        } else if (window.screen.width < 420 && window.screen.width > 390) {
             setImage(350, 230);
         } else {
             setImage(730, 520);
@@ -56,7 +60,7 @@ const HomeContent = () => {
         var context = myCanvas.getContext('2d');
 
         var canvasGapX = myCanvas.offsetLeft;
-        var pixelData = context.getImageData(event.pageX - canvasGapX - 20, event.pageY - ( window.screen.width > 1350 ? 200 : 179 ) - 43, 1, 1);
+        var pixelData = context.getImageData(event.pageX - canvasGapX - 20, event.pageY - (window.screen.width > 1350 ? 200 : 179) - 43, 1, 1);
         var data = pixelData.data;
         const color = `rgb(${data[0]}, ${data[1]}, ${data[2]})`
         function rgbToHex(red, green, blue) {
@@ -67,12 +71,14 @@ const HomeContent = () => {
         setcolor(color);
     }
 
+    // Setting selected color to box
     const setBoxColor = () => {
         setoldcolor(color);
         setoldrgbcode(color);
         setnewhexcode(oldhexcode);
     }
 
+    // Coping HEX code
     const copyhex = () => {
         let inputElement = document.createElement('input');
         inputElement.setAttribute('value', newhexcode);
@@ -83,6 +89,7 @@ const HomeContent = () => {
         notify();
     }
 
+    // Coping RGB code
     const copyrgb = () => {
         let inputElement = document.createElement('input');
         inputElement.setAttribute('value', oldrgbcode);
@@ -93,6 +100,7 @@ const HomeContent = () => {
         notify();
     }
 
+    // Uploading Image and setting it to container
     let inputImg;
     const getFile = (event) => {
         inputImg = event.target.files[0];
@@ -109,8 +117,7 @@ const HomeContent = () => {
         } else {
             console.log("Sorry.. This is not an image file...");
         }
-    }
-
+    };
 
     return (
         <div className={`home-container ${mode}`} id="mainContainer">
