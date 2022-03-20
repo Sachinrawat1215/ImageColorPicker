@@ -163,6 +163,10 @@ const HomeContent = () => {
                         </div>
                     </div>
                 </div>
+                <div className="content-card">
+                    <h1><strong>Image Color Picker</strong></h1>
+                    <p><strong>Image color picker</strong> is an tool which provide you utility to extract color from image in different <strong>color code</strong> formats like HEX, RGB color code. To get color code of your image first you have to upload your image so click on <label style={{color: "red", cursor: "pointer"}} htmlFor="Imgfile">upload image</label> button and then select image through which you want to get color. then it will upload your image and it will set it to the image box and for confimation you will get notification. Now you are ready to get color just hover on image and click on that pixel. Your selected <strong>image color</strong> will show inside color box and your color code also. Just click on <span className="pink">copy button</span> to copy color code. you can copy any HEX or RGB color.</p>
+                </div>
             </div>
         </div>
     );
